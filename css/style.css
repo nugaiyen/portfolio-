@@ -1,6 +1,6 @@
 body {
     margin: 0;  /* removes white space around page */
-    background-color: #f7fafc; /* change to any color you want */
+    background-color: rgb(244, 251, 255);
 }
 
 .navbar {
@@ -10,6 +10,8 @@ body {
     display: flex;
     align-items: center; 
     justify-content: center;   /* centers horizontally */
+    position: sticky;
+    top: 0;
 }
 
 .navbar p {
@@ -20,9 +22,6 @@ body {
 .homebutton {
     width: 45px;
     height: 35px;
-    border-style: solid;
-    border-width: .5px;
-    border-color: rgb(255, 255, 255);
     background-color:  rgb(10, 104, 126);
     display: flex;  
     align-items: center; 
@@ -41,18 +40,10 @@ body {
     color: rgb(53, 137, 156); 
 }
 
-.takeupspace {
-    width: 990px;
-    height: 35px;
-    background-color: rgb(10, 104, 126);
-}
 
 .button {
     width: 140px;
     height: 35px;
-    border-style: solid;
-    border-width: .5px;
-    border-color: rgb(255, 255, 255);
     background-color: rgb(10, 104, 126);
     display: flex;  
     align-items: center; 
@@ -89,36 +80,38 @@ h1 {
 }
 
 .seattle {
-    height: 90vh;  /* half screen */
+  height: 80vh;
+  background-image: url("../imgs/Seattle.png");
+  background-size: cover;      /* fills entire section */
+  background-position: center; /* keeps it centered */
+  background-repeat: no-repeat;
 
-    background-image: url("imgs/seattle.png"); /* correct path */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* White card */
 .bg {
     display: flex;
-    gap: 20px;
-
+    gap: 10px;
     width: 80%;
     max-width: 1000px;
-
-    padding: 40px;
+    padding: 20px;
     border-radius: 30px;
-
-    background-color: white;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    background-color: rgba(255, 255, 255, 0.95);;
+    box-shadow: 0 20px 40px rgba(18, 70, 88, 0.6);
 }
 
 .p1 img, .p2 img, .p3 img{
     border-radius: 50px; 
 }
+
+p{
+    font-family: 'Inter', sans-serif;
+}
+
+
 
 
 
