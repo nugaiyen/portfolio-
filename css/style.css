@@ -80,7 +80,7 @@ h1 {
 
 .seattle {
   height: 80vh;
-  background-image: url("imgs/seattle.png");
+  background-image: url("/imgs/seattle.png");
   background-size: cover;      /* fills entire section */
   background-position: center; /* keeps it centered */
   background-repeat: no-repeat;
