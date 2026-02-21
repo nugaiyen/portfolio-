@@ -130,7 +130,7 @@ h1 {
 }
 
 
-p{
+p, h2{
     font-family: 'Inter', sans-serif;
 }
 
@@ -187,6 +187,16 @@ p{
     background-color: rgba(131, 139, 140, 0.692);
     color:white;
     align-items: center;
+}
+
+.image-gallery2 figure {
+    text-align: center;
+}
+
+.image-gallery2 figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
 }
 
 
