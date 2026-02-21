@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <nav class="navbar">
+        <p style="margin-left:30px">Lindsay Nguyen</p>
+        <p class="center-title">Vulnerabilty Index </p>
+        <div class="nav-right">
+            <a href="gallery.html"  class="button">
+                <p>Gallery</p>
+            </a>
+            <a href="home.html"  class="button">
+                <p>About</p>
+            </a>
+        </div>
+    </nav>
+
+
+
+        <div class=image-gallery2>
+        <div class = "content">
+            <h2 style="text-align: center; padding: 0px;">Equity Mapping for the People of Seattle</h2> <br>
+            <p style="text-align: center;margin-top:-45px;"><b>By Lindsay Nguyen <br>
+            01.19.2026</b></p>
+
+            Health outcomes in Seattle can vary significantly in communities due to different backgrounds. They are not distributed evenly, reflecting broader patterns of social and economic inequality. Understanding how these health disparities are distributed geographically is essential for developing effective and equitable public health interventions.
+            <br><br>This report uses spatial analysis to examine the geographic distribution of health equity across Seattle and identify communities experiencing the greatest health challenges. By mapping a health index derived from standardized indicators, this analysis highlights areas where targeted health interventions may have the greatest impact. The findings are intended to support non-profit efforts to advance equitable health outcomes across Seattle.
+            <br><br>The purose of the use of equity mapping is that it makes it possible to identify communities that experience disproportionate health burdens relative to the broader population. One of the key strengths of equity mapping is its ability to integrate multiple indicators into a single geographic framework. It supports more informed decision-making. By highlighting areas with the greatest relative need, maps can guide the prioritization of public health interventions, resource allocation, and community investments. For non-profit organizations and policymakers, these spatial insights help ensure that limited resources are directed toward neighborhoods where interventions may have the greatest impact.
+
+            <br><br> <b>Measures</b><br>
+            For this research I focused on 5 specific variables;
+            <ul>
+            <li>Health_2 (Percentage of adults with diagnosed diabetes)</li>
+            <li>Health_4 (Percentage of adults reporting mental health is not good)</li>
+            <li>Health_6 (Life expectancy at birth)</li>
+            <li>Health_7 (Percentage of adults with disability)</li>
+            <li>Health_8 (Percentage of insured civilian noninstitutionalized population)</li>
+            </ul>
+
+            I chose the variables according to the r values with the variable “Health_8”. These were the pairings and r value outcome; 
+            <ul>
+                <li>Health_8, Health_2  = .07 </li>
+                <li>Health_8, Health_4 = .14 </li>
+                <li>Health_8 Health_6 = .08 </li>
+                <li>Health_8, Health_7 = .08</li>
+            </ul>
+
+            I also made sure that the chosen variables did not have a lot of overlaps by checking their r value with the other variables;
+            <ul>
+                <li>Health_2, Health_4 = .02 </li>
+                <li>Health_2, Health_6= .14 </li>
+                <li>Health_2, Health_7 =.27 </li>
+                <br>
+                <li>Health_4, Health_7 = 0 </li>
+                <li>Health_4, Health_2 = .02 </li>
+                <li>Health_4 Health_6 = .02 </li>
+                <br>
+                <li>Health_7, Health_2=.27 </li>
+                <li>Health_7, Health_4 = 0 </li>
+                <li>Health_7, Health_6 = .1 </li>
+                <br>
+                <li>Health_6, Health_2= .14 </li>
+                <li>Health_6, Health_4 = .02 </li>
+                <li>Health_6, Health_7 = .1 </li>
+            </ul>
+
+            “Health_5” was also a potential variable, as it had a lower r value with “Health_8” than “Health_4” did. However, when I examined the correlations with the other variables, “Health_5” showed higher r values overall compared to “Health_4.”
+            <br><br>Health_6 (Life expectancy at birth), and Health_8 (Percentage of insured civilian noninstitutionalized population) was inverted, this is necessary because they are measured opposite to the other index (higher is better instead of worse).
+
+
+
+            <br><br><b>Diabetes </b><br>
+            Figure 2 focuses on the relative diabetes amongst adults in Seattle., Neighborhoods in South Seattle experience much higher rates of diabetes than areas in North and West Seattle. In contrast, Westlake and its surrounding neighborhoods have lower diabetes prevalence. Overall, the map suggests that diabetes prevalence tends to increase with distance from downtown, highlighting a spatial gradient. These patterns indicate that the burden of diabetes is unevenly distributed and may reflect broader structural inequities in access to healthcare, nutritious food, and preventive services. The highest prevalence is observed along North Beacon Hill down to South Beacon Hill, marking a clear hotspot for diabetes in the city.
+
+            <br><br><b>Poor Mental Health</b><br>
+            The relative prevalence of disability among adults reveals clear geographic disparities. As shown in Figure 5, Neighborhoods in South Seattle and parts of North Seattle experience the highest prevalence of disability, a pattern that is similar to the distribution of life expectancies. Areas near Lake Union show lower concentrations of adults with disabilities, this map closely resembles the map for diabetes with its gradient from Lake Union. Neighborhoods with fewer adults experiencing disabilities are mostly located in the northern region, which reinforces the idea of health disparities and unevenness across Seattle. This is also the first time, compared to the previous maps where Alki showed a much higher concentration for a less favorable health outcome.
+            <br><br><b>Diabetes </b><br>
+            <br><br><b>Insurance </b><br>
+            As shown in Figure 6, areas in northeastern Seattle, such as South Point, exhibit higher than average levels of insured residents. Moving south toward Harrison/Denny-Blaine, this pattern of much higher than average insurance coverage continues, with the notable exception of Windermere. Windermere stands out as the only area in this region with a much lower than average insured population. In contrast, South Seattle, neighborhoods south of Beacon Hill and extending toward the Rainier Valley, contains some of the most concentrations of low insurance coverage, indicating a sustained pattern. Meanwhile, pockets of lower values appear intermittently in western Seattle, often surrounded by neighborhoods closer to the city average. Overall, the clustering observed in this map highlights uneven insurance coverage across Seattle, with clear regional differences that may influence access to services, resource allocation, and broader social and health outcomes.
+                
+            <br><br><b>Health Equity</b><br>
+            The Health Equity Index map of Seattle (Figure 1) highlights pronounced spatial disparities across the city. Neighborhoods in South Seattle, including South Park, Rainier Valley, and areas bordering the Duwamish River, consistently show very low to low health index scores, indicating concentrated poor health outcomes. These patterns align with the individual component maps, which reveal higher rates of diabetes, disability, and lower life expectancy in these areas. In contrast, neighborhoods near bodies of water in the north and west, such as Ballard, Queen Anne, and West Seattle, show higher health index values, reflecting better overall health and lower chronic disease burdens. Overall, health outcomes generally worsen with increasing distance from Lake Union, revealing a clear geographic gradient across the city.
+                
+            <br><br><b>Conclusion</b><br>
+            The Health Equity Index reveals a clear geographic divide in health outcomes across Seattle, with the southern neighborhoods disproportionately burdened by poor health indicators and the northern and western areas enjoying relatively better outcomes. Targeted interventions in South Seattle, especially around neighborhoods such as South Park and Rainier Valley, are critical to reducing these disparities. Addressing systemic factors that contribute to chronic disease, poor mental health, and shorter life expectancy will be essential for promoting health equity across the city.
+
+        
+        </div>
+
+        <div class = image-gallery2>
+            <img src="imgs\461p2m1.png" alt="p2m1">
+            <img src="imgs\461p2m2.png" alt="p2m2">
+            <img src="imgs\461p2m3.png" alt="p2m3">
+            <img src="imgs\461p2m4.png" alt="p2m4">
+            <img src="imgs\461p2m5.png" alt="p2m5">
+            <img src="imgs\461p2m8.png" alt="p2m8">
+        </div>
+        </div>
+
+        <a href="gallery.html" class="button" style="margin-bottom: 15px; border-radius: 90px; margin-left:40px; color:white; padding:5px; width: 80px">
+            <p>Gallery</p>
+        
+        </a>
+
+        <div class="box" style=" margin-bottom: 10px; border-radius: 90px; margin-left:40px; padding:1px; width: 600px;  font-size: 10px;">
+            <p style="margin-left:12px;">This returns you to the top of the gallery. To return to your previous location in the gallery, please go back to the previous browser!</p>
+        </div>
+
+
+</body>
+</html>
