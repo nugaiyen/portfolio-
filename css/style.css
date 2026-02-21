@@ -12,11 +12,38 @@ body {
     justify-content: center;   /* centers horizontally */
     position: sticky;
     top: 0;
+    z-index: 7
+}
+
+.navbar {
+    width: 100%;
+    height: 35px;
+    background-color: rgb(10, 104, 126);
+    position: relative;      /* allows absolute positioning inside */
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+}
+
+.center-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+}
+
+.nav-right {
+    margin-left: auto;
+    display: flex;
+    color: white;
+    font-family: 'Inter', sans-serif;
 }
 
 .navbar p {
     margin: 0;
     color: white;
+    font-family: 'Inter', sans-serif;
 }
 
 .homebutton {
@@ -26,6 +53,8 @@ body {
     display: flex;  
     align-items: center; 
     justify-content: center;  
+    color: white;
+    font-family: 'Inter', sans-serif;
 }
 
 .homebutton p {
@@ -51,11 +80,17 @@ body {
 }
 .button:hover {
     background-color: #92f3f8;
+    cursor: pointer;
     
 }
 
 .button:hover p {
     color: rgb(53, 137, 156); 
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;  /* removes underline */
 }
 
 
@@ -95,20 +130,66 @@ h1 {
     display: flex;
     gap: 20px;
     width: 80%;
-    max-width: 1000px;
+ 
     padding: 20px;
     border-radius: 30px;
     background-color: rgba(255, 255, 255, 0.95);;
     box-shadow: 0 20px 40px rgba(18, 70, 88, 0.6);
 }
 
-.p1 img, .p2 img, .p3 img{
-    border-radius: 50px; 
-}
 
 p{
     font-family: 'Inter', sans-serif;
 }
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;        /* allows multiple rows */
+    justify-content: center; /* centers horizontally */
+    gap: 20px;              /* space between images */
+    padding: 40px 0;
+}
+
+.image-gallery img {
+    width: 450px;
+    height: auto;
+    border: 4px solid rgb(204, 224, 225);
+}
+
+
+
+/* Highlight effect on hover */
+.image-gallery img:hover {
+    border-color: rgb(73,192,218);           /* change border color */
+    box-shadow: 0 0 20px rgba(73,192,218,0.6); /* glowing shadow */
+    transform: scale(1.05);                  /* slight zoom effect */
+    cursor: pointer;                          /* shows it’s clickable */
+}
+
+.image-gallery2 {
+    display: flex;
+    flex-wrap: wrap;        /* allows multiple rows */
+    justify-content: center; /* centers horizontally */
+    gap: 20px;              /* space between images */
+    padding: 40px 0;
+}
+
+.image-gallery2 img {
+    width: 600px;
+    height: auto;
+    border: 4px solid rgb(204, 224, 225);
+}
+
+.content {
+    width: 80%;             /* limits line length */
+    margin: 20px auto;      /* centers content */
+    line-height: 1.6;       /* more readable line spacing */
+    font-family: Arial, sans-serif;
+    color: #222;
+    background-color: white;
+    padding: 100px;
+}
+
 
 
 
