@@ -2,8 +2,30 @@
 <html>
 <head>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+     <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" rel="stylesheet" />
+
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.css" rel="stylesheet" />
+
+    <style>
+        pre {
+            background: #ffffff !important; 
+            color: #333333;      
+            padding: 20px;
+            overflow-x: auto;
+            margin: 30px 0;
+            font-size: 14px;
+            width:1000px;
+            border: 1px solid rgb(181, 181, 181) ;
+         
+        }
+
+        /* Optional: adjust line number color */
+        .line-numbers .line-numbers-rows {
+            border-right: 1px solid #ccc;
+        }
+    </style>
+    
 </head>
 <body>
     
@@ -20,29 +42,67 @@
         </div>
     </nav>
 
-    
-    <pre>
-        <code class="language-python">
-            # 1 Join each of the above datasets to the states file (with the end result being two separate joined files)
-
-            import geopandas as gpd
-            import fiona 
-
-            wf1985 = gpd.read_file(r'/home/jovyan/Data/Wildfires_1985-1999/wildfires_1985-1999.shp')
-        </code>
-    </pre>
-                    
-        
-
-
     <div class = "image-gallery2">
+        <pre class="line-numbers"><code class="language-python"># 1 Join each of the above datasets to the states file(with the end result being two separate joined files)
+
+import geopandas as gpd
+import fiona 
+wf1985 = gpd.read_file(r'/home/jovyan/Data/Wildfires_1985-1999/wildfires_1985-1999.shp')
+states = gpd.read_file(r"/home/jovyan/Data/110m_cultural/ne_110m_admin_1_states_provinces.shp")
+
+wf1985 = gpd.read_file(r'/home/jovyan/Data/Wildfires_1985-1999/wildfires_1985-1999.shp')
+wf1985 = wf1985.to_crs(states.crs)
+s1985 = wf1985.overlay(states, how= 'intersection')
+
+wf2020 = gpd.read_file(r'/home/jovyan/Data/Wildifres_2020/wildfires_2000-2014.shp')
+wf2020 = wf2020.to_crs(states.crs)
+s2020 = wf2020.overlay(states, how= 'intersection')
+    
+#Plot these two datasets as maps.
+
+import matplotlib.pyplot as plt
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+base = states.plot(ax=ax1,color='white', edgecolor='grey', linewidth=0.2)
+base = states.plot(ax=ax2, color='white', edgecolor='grey', linewidth=0.2)
+ax1.set(title='1985-1899')
+ax2.set(title='2000-2014')
+fig.suptitle('US Wildfire' , y =.85)
+
+
+s1985.plot(ax=ax1, markersize=1)
+s2020.plot(ax=ax2, markersize=1)</code></pre>
+
+
+
+
 
             <figure >
                 <img src="imgs/lab2.jpg" alt="m1" style="width:1000px;">
                 <figcaption>Figure 1</figcaption>
             </figure>
 
+            <pre><code class="language-python">REFLECTION
+
+At first, I attempted to merge the states and wildfire files together by finding a common column with an
+identification code. When I thought I had suceeded in merging the datasets I notticed that there were only 51 
+rows, this felt off as there should've been over 100 to count for all the fires and not just the states.
+
+Then I tried a different approach of using one of the set operations overlay; intersection. I was able to combine 
+all of the datasets together to further the project. The begining step was where I struggled the most. Once I was 
+able to get past that hurdle the rest of the analyis became a breathe of fresh air. However, I did encounter 
+another challenge later on, this one was a short one. The counts were coming off as the same numbers for both the 
+1985-1999 and 2020-12014 dataset. I knew this was incorrect because the ladder's dataset should have contained
+more wildfires. I realized then, that when I coded the counting line, I had useD the same dataset for both.
+            </code></pre>
+
+            
+
     
-        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/toolbar/prism-toolbar.js"></script>
+    
 </body>
 </html>
