@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <p style="margin-left:30px">Lindsay Nguyen</p>
+        <p class="center-title">US Wildfires</p>
+        <div class="nav-right">
+            <a href="gallery.html"  class="button">
+                <p></p>
+            </a>
+            <a href="home.html"  class="button">
+                <p>About</p>
+            </a>
+        </div>
+    </nav>
+
+    
+    <pre>
+        <code class="language-python">
+            # 1 Join each of the above datasets to the states file (with the end result being two separate joined files)
+
+            import geopandas as gpd
+            import fiona 
+
+            wf1985 = gpd.read_file(r'/home/jovyan/Data/Wildfires_1985-1999/wildfires_1985-1999.shp')
+        </code>
+    </pre>
+                    
+        
+
+
+    <div class = "image-gallery2">
+
+            <figure >
+                <img src="imgs/lab2.jpg" alt="m1" style="width:1000px;">
+                <figcaption>Figure 1</figcaption>
+            </figure>
+
+    
+        </div>
+</body>
+</html>
