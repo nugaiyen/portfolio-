@@ -12,23 +12,8 @@ body {
     justify-content: center;   /* centers horizontally */
     position: sticky;
     top: 0;
-    z-index: 7
-}
-
-
-
-.center-title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    font-weight: bold;
-}
-
-.nav-right {
-    margin-left: auto;
-    display: flex;
-    color: white;
-    font-family: 'Inter', sans-serif;
+    z-index: 9;
+    
 }
 
 .navbar p {
@@ -37,44 +22,23 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-.homebutton {
-    width: 45px;
-    height: 35px;
-    background-color:  rgb(10, 104, 126);
-    display: flex;  
-    align-items: center; 
-    justify-content: center;  
-    color: white;
-    font-family: 'Inter', sans-serif;
-}
-
-.homebutton p {
-    font-size:20px;
-}
-
-.homebutton:hover {
-    background-color: #92f3f8;
-}
-
-.homebutton:hover p {
-    color: rgb(53, 137, 156); 
-}
-
-
 .button {
-    width: 140px;
-    height: 35px;
+    padding: 8px 20px;
     background-color: rgb(10, 104, 126);
-    display: flex;  
-    align-items: center; 
-    justify-content: center;   
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    z-index: 7;
+    font-family: 'Inter', sans-serif; 
 }
+
 .button:hover {
     background-color: #92f3f8;
     cursor: pointer;
     
 }
-
 
 .button:hover p {
     color: rgb(53, 137, 156); 
@@ -86,11 +50,11 @@ a {
 }
 
 
-h1 {
-    margin-top: 30px;
-    margin-left: 70px;
-    font-size: 40px;
-}
+
+
+
+
+
 
 .text {
     flex: 1;               

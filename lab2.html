@@ -34,7 +34,7 @@
         <p class="center-title">US Wildfires</p>
         <div class="nav-right">
             <a href="gallery.html"  class="button">
-                <p></p>
+                <p>Gallery</p>
             </a>
             <a href="home.html"  class="button">
                 <p>About</p>
@@ -43,7 +43,7 @@
     </nav>
 
     <div class = "image-gallery2">
-        <pre class="line-numbers"><code class="language-python"># 1 Join each of the above datasets to the states file(with the end result being two separate joined files)
+        <pre class="line-numbers"><code class="language-python"># Plot joined datasets to the states file
 
 import geopandas as gpd
 import fiona 
@@ -68,7 +68,6 @@ ax1.set(title='1985-1899')
 ax2.set(title='2000-2014')
 fig.suptitle('US Wildfire' , y =.85)
 
-
 s1985.plot(ax=ax1, markersize=1)
 s2020.plot(ax=ax2, markersize=1)</code></pre>
 
@@ -76,29 +75,139 @@ s2020.plot(ax=ax2, markersize=1)</code></pre>
 
 
 
-            <figure >
-                <img src="imgs/lab2.jpg" alt="m1" style="width:1000px;">
-                <figcaption>Figure 1</figcaption>
-            </figure>
-
-            <pre><code class="language-python">REFLECTION
-
-At first, I attempted to merge the states and wildfire files together by finding a common column with an
-identification code. When I thought I had suceeded in merging the datasets I notticed that there were only 51 
-rows, this felt off as there should've been over 100 to count for all the fires and not just the states.
-
-Then I tried a different approach of using one of the set operations overlay; intersection. I was able to combine 
-all of the datasets together to further the project. The begining step was where I struggled the most. Once I was 
-able to get past that hurdle the rest of the analyis became a breathe of fresh air. However, I did encounter 
-another challenge later on, this one was a short one. The counts were coming off as the same numbers for both the 
-1985-1999 and 2020-12014 dataset. I knew this was incorrect because the ladder's dataset should have contained
-more wildfires. I realized then, that when I coded the counting line, I had useD the same dataset for both.
-            </code></pre>
+        <figure >
+            <img src="imgs/lab2.jpg" alt="m1" style="width:1000px;">
+            <figcaption>Figure 1</figcaption>
+        </figure>
 
             
 
+        <pre><code class="language-python">REFLECTION
+
+At first, I attempted to merge the states and wildfire files together by finding a common column with an
+identification code. When I thought I had suceeded in merging the datasets I notticed that there were only 51 
+rows, this felt off as there should've been over 100 to count for all the fires and not just the states. Then I 
+tried a different approach of using one of the set operations overlay; intersection. I was able to combine all 
+of the datasets together to further the project. The begining step was where I struggled the most. Once I was 
+able to get past that hurdle the rest of the analyis became a breathe of fresh air. However, I did encounter 
+another challenge later on, this one was a short one. The counts were coming off as the same numbers for both 
+the 1985-1999 and 2020-12014 dataset. I knew this was incorrect because the ladder's dataset should have 
+contained more wildfires.I realized then, that when I coded the counting line, I had used the same dataset for 
+both.
+        </code></pre>
+
+
+
+
+
+
+        <pre class="line-numbers"><code class="language-python"># Choroplething data
+
+states1985 = states.merge(c1985.reset_index(name='number_of_fires'))
+states2000 = states.merge(c2020.reset_index(name='number_of_fires'))
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 6))
+base = states.plot(ax=ax1,color='white', edgecolor='grey', linewidth=0.2)
+base = states.plot(ax=ax2, color='white', edgecolor='grey', linewidth=0.2)
+
+states1985.plot(
+    column='number_of_fires',
+    cmap='OrRd',
+    legend=True,
+    ax=ax1
+)
+ax1.set_title('1985-1999')
+ax1.set_axis_off()  
+ 
+states2000.plot(
+    column='number_of_fires',
+    cmap='OrRd',
+    legend=True,
+    ax=ax2
+)
+ax2.set_title('2000-2014')
+ax2.set_axis_off()
+
+fig.suptitle('US Wildfire Counts per State', fontsize=14)
+plt.tight_layout()
+plt.show()
+</code></pre>
+
+
+        <figure >
+            <img src="imgs\lab2f2.jpg" alt="m1" style="width:1000px;">
+            <figcaption>Figure 2</figcaption>
+        </figure>
+
+        <pre><code class="language-python">RECLECTION 2
+
+Please keep note of the difference in scale bar. Despite the difference, Florida appears to expereince the most 
+wild fires in both time range of 1985-1999 and 2000-1999. The map on the right, 2000-2014, has a wide range in 
+wild fire counts. If we analyze the data closely, we can see that Florida is an outlier, containing 3274 
+wildfires. The following state with the most wild fires is Texas, conissting of 841 cases. This is a durastic 
+difference. A calculation is provided bellow to maintain data accuracy. Similarly for the 1985-1999 data set. </code></pre>
+
+        <pre class="line-numbers"><code class="language-python"># List wildfire counts for each state for each time period
+
+c1985 = s1985.groupby('name').size()
+c1985.sort_values(axis=0, ascending=False)
+
+c2020 = s2020.groupby('name').size()
+c2020.sort_values(axis=0, ascending=False)
+        </code></pre>
+
+
+        <figure >
+            <img src="imgs\wildfireData.jpg" alt="m1" style="width:500px;">
+            <figcaption>Wildfire counts</figcaption>
+        </figure>
+
+            
+        <pre class="line-numbers"><code class="language-python"> # Upper bound of wildefire 2000-2014 dataset
+
+q1 = states2000['number_of_fires'].quantile(0.25)
+q3 = states2000['number_of_fires'].quantile(0.75)
+
+iqr = q3 - q1
+upper_bound = q3 + 1.5 * iqr
+
+print("Upper bound:", upper_bound)
+# [Upper bound: 955.375]</code></pre>
+
+        <pre class="line-numbers"><code class="language-python"> # Upper bound of wildefire 1985-1999 dataset
+
+q1 = states1985['number_of_fires'].quantile(0.25)
+q3 = states1985['number_of_fires'].quantile(0.75)
+
+iqr = q3 - q1
+upper_bound = q3 + 1.5 * iqr
+
+print("Upper bound:", upper_bound)
+# [Upper bound: 476.25]</code></pre>
+
+
+        <pre><code class="language-python"></code>REFLECTION 3
+
+With this, we can see that the data set for the wildfires in 1985-1999 has one outlier; Florida, while the 
+data set fire wildfires in 2000-2014 has three outliers; Florida, California, and Idaho. It would be best to 
+change the mapping approach to be quantile.</pre></code>
+
+    <figure >
+            <img src="imgs\lab2f3.jpg" alt="m1" style="width:1000px;">
+            <figcaption>Figure 3</figcaption>
+        </figure>
     
     </div>
+
+    <a href="gallery.html" class="button" style="margin-bottom: 15px; border-radius: 90px; margin-left:40px; color:white; padding:5px; width: 80px">
+        <p>Gallery</p>
+    
+    </a>
+
+    <div class="box" style=" margin-bottom: 10px; border-radius: 90px; margin-left:40px; padding:1px; width: 600px;  font-size: 10px;">
+        <p style="margin-left:12px;">This returns you to the top of the gallery. To return to your previous location in the gallery, please go back to the previous browser!</p>
+    </div>
+
 
     <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/prismjs/plugins/line-numbers/prism-line-numbers.js"></script>
