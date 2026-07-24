@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -11,13 +8,44 @@
     </p>
 
         <nav class="navbar">
-            <a href="#arc" class="button nav-link">ArcGIS Cartography</a>
             <a href="#Web" class="button nav-link">Web Geography</a>
+            <a href="#arc" class="button nav-link">ArcGIS Cartography</a>
             <a href="#python" class="button nav-link">Python Data Management</a>
             <a href="home.html" target="_blank" class="button">Lindsay Nguyen</a>
         </nav>
+
+    
+    <section id="Web"> 
+        <br>
+        <br>
+
+        <p style = "font-size: 20px; text-align: center; color:rgb(3, 106, 138)">
+            <b>Web Geography</b>
+         </p>  
+         
+        <div class = "image-gallery">
+            <a href="https://nugaiyen.github.io/458p6-smart-dashboard/" target="_blank">
+                <img src="imgs/458p6.png" alt= "458p6" style = "width:1000px">
+            </a>
+            
+            <a href="https://nugaiyen.github.io/458p6-smart-dashboard/" target="_blank">
+                <img src="imgs/458p6zoomed.png" alt= "458p6zoomed"  style = "width:1000px">
+            </a>
+
+            <a href="https://nugaiyen.github.io/Geography-Symposium-2026/test.html" target="_blank">
+                <img src="imgs/symposium1.png" alt= "458p6" style = "width:1000px">
+            </a>
+            <a href="https://nugaiyen.github.io/Geography-Symposium-2026/test.html" target="_blank">
+                <img src="imgs/symposium2.png" alt= "458p6" style = "width:1000px">
+            </a>
+
         
+        </div>
+    </section>
+
     <section id="arc"> 
+        <br>
+        <br>
         <p style = "font-size: 20px; text-align: center; color:rgb(3, 106, 138)">
             <b>ArcGIS Carotgraphy</b>
          </p> 
@@ -59,26 +87,13 @@
     </section>
    
 
-    <section id="Web"> 
-        <p style = "font-size: 20px; text-align: center; color:rgb(3, 106, 138)">
-            <b>Web Geography</b>
-         </p>  
-         
-        <div class = "image-gallery">
-            <a href="https://nugaiyen.github.io/458p6-smart-dashboard/" target="_blank">
-                <img src="imgs/458p6.png" alt= "458p6" style = "width:1000px">
-            </a>
-            
-            <a href="https://nugaiyen.github.io/458p6-smart-dashboard/" target="_blank">
-                <img src="imgs/458p6zoomed.png" alt= "458p6zoomed"  style = "width:1000px">
-            </a>
-        
-        </div>
-    </section>
    
 
 
     <section id="python">
+        <br>
+        <br>
+
         <p style = "font-size: 20px; text-align: center; color:rgb(3, 106, 138)">
             <b>Python Data Management</b>
          </p> 
@@ -116,7 +131,7 @@
             let current = "";
 
             sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
+                const sectionTop = section.offsetTop - 50;
                 if (window.scrollY >= sectionTop) {
                     current = section.getAttribute("id");
                 }
